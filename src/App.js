@@ -7,6 +7,7 @@ import Form from './components/Form/Form';
 export default function App() {
   const [drafts, setDrafts] = useState([]);
   const [sentiment, setSentiment] = useState('');
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     setSentiment(sentiment);
@@ -20,12 +21,23 @@ export default function App() {
       .catch((error) => console.log('error', error));
   };
 
+  const submitDraft = () => {
+    setDrafts([...drafts, message]);
+    setMessage('');
+  };
+
   return (
     <Switch>
       <Route
         exact
         path='/'
-        render={() => <Form checkSentiment={checkSentiment} />}
+        render={() => (
+          <Form
+            checkSentiment={checkSentiment}
+            message={message}
+            setMessage={setMessage}
+          />
+        )}
       />
       <Route
         exact
@@ -33,7 +45,12 @@ export default function App() {
         render={() => (
           <>
             <div>{sentiment}</div>
-            <Link to='/'><button>Back</button></Link>
+            <Link to='/'>
+              <button>Back</button>
+            </Link>
+            <Link to='/'>
+              <button onClick={submitDraft}>Save Draft</button>
+            </Link>
           </>
         )}
       />

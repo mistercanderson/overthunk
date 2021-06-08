@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Form({ checkSentiment }) {
-  const [message, setMessage] = useState('');
+export default function Form({ checkSentiment, message, setMessage }) {
+  
   return (
     <form
       onSubmit={(e) => {
@@ -23,7 +23,6 @@ export default function Form({ checkSentiment }) {
         <button
           onClick={() => {
             checkSentiment(message);
-            setMessage('');
           }}
         >
           Check Sentiment
