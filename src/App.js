@@ -6,15 +6,17 @@ import Form from './components/Form/Form';
 
 export default function App() {
   const [drafts, setDrafts] = useState([]);
-  const [sentiment, setSentiment] = useState({});
+  const [sentiment, setSentiment] = useState('');
 
-  const submitDraft = (draft) => {
-    setDrafts([...drafts, draft]);
-  };
+  useEffect(() => {
+    setSentiment(sentiment);
+  }, [sentiment]);
 
   const checkSentiment = (message) => {
     requestSentiment(message)
-      .then((data) => setSentiment(data))
+      .then((data) => {
+        setSentiment(data.result.type);
+      })
       .catch((error) => console.log('error', error));
   };
 
@@ -27,8 +29,13 @@ export default function App() {
       />
       <Route
         exact
-        path='/check_sentiment'
-        render={() => <div>{sentiment}</div>}
+        path='/check-sentiment'
+        render={() => (
+          <>
+            <div>{sentiment}</div>
+            <Link to='/'><button>Back</button></Link>
+          </>
+        )}
       />
       <Redirect to='/' />
     </Switch>
