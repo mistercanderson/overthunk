@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-page",
+  "name": "react-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "./node_modules/.bin/cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -36,10 +37,8 @@
     ]
   },
   "devDependencies": {
-    "@react-three/fiber": "^7.0.1",
-    "gsap": "^3.6.1",
+    "cypress": "^7.5.0",
     "react-router-dom": "^5.2.0",
-    "reset-css": "^5.0.1",
-    "three": "^0.129.0"
+    "reset-css": "^5.0.1"
   }
 }
