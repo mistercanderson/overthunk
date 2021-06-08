@@ -14,7 +14,7 @@ export default function App() {
 
   useEffect(() => {
     setSentiment(sentiment);
-    const face = faceSwitch(sentiment);
+    const face = faceSwitch(sentiment?.result?.type);
     setEmoji(face);
   }, [sentiment]);
 
@@ -22,7 +22,7 @@ export default function App() {
     setError('');
     requestSentiment(message)
       .then((data) => {
-        setSentiment(data.result.type);
+        setSentiment(data);
       })
       .catch(() => setError(errorMessage));
   };
@@ -53,12 +53,12 @@ export default function App() {
       />
       <Route
         exact
-        path='/check-sentiment'
+        path='/result'
         render={() => (
           <>
             <div>{emoji}</div>
             {error && error}
-            <div>{sentiment}</div>
+            <div>{sentiment && sentiment.result.type}</div>
             <Link to='/'>
               <button>Back</button>
             </Link>

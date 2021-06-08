@@ -19,7 +19,7 @@ export default function Form({ checkSentiment, message, setMessage }) {
           }}
         />
       </label>
-      <Link to='/check-sentiment'>
+      <Link to='/result'>
         <button
           onClick={() => {
             checkSentiment(message);
