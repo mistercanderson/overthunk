@@ -8,9 +8,24 @@ export default function App() {
   const [drafts, setDrafts] = useState([]);
   const [sentiment, setSentiment] = useState('');
   const [message, setMessage] = useState('');
+  const [emoji, setEmoji] = useState('🧐');
 
   useEffect(() => {
     setSentiment(sentiment);
+    switch (sentiment) {
+      case 'positive':
+        setEmoji('🙂');
+        break;
+      case 'negative':
+        setEmoji('😕');
+        break;
+      case 'neutral':
+        setEmoji('😑');
+        break;
+      default:
+        setEmoji('🧐');
+        break;
+    }
   }, [sentiment]);
 
   const checkSentiment = (message) => {
@@ -24,6 +39,7 @@ export default function App() {
   const submitDraft = () => {
     setDrafts([...drafts, message]);
     setMessage('');
+    setSentiment('')
   };
 
   return (
@@ -32,11 +48,14 @@ export default function App() {
         exact
         path='/'
         render={() => (
-          <Form
-            checkSentiment={checkSentiment}
-            message={message}
-            setMessage={setMessage}
-          />
+          <>
+            <div>{emoji}</div>
+            <Form
+              checkSentiment={checkSentiment}
+              message={message}
+              setMessage={setMessage}
+            />
+          </>
         )}
       />
       <Route
@@ -44,6 +63,7 @@ export default function App() {
         path='/check-sentiment'
         render={() => (
           <>
+            <div>{emoji}</div>
             <div>{sentiment}</div>
             <Link to='/'>
               <button>Back</button>
