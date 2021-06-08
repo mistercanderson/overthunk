@@ -34,5 +34,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@react-three/fiber": "^7.0.1",
+    "gsap": "^3.6.1",
+    "react-router-dom": "^5.2.0",
+    "reset-css": "^5.0.1",
+    "three": "^0.129.0"
   }
 }
