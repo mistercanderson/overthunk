@@ -15,7 +15,8 @@ label {
 
 textarea {
   resize: none;
-  grid-area: bb
+  grid-area: bb;
+  width: 45ch
 }
 
 form > button {

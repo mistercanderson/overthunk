@@ -1,5 +1,5 @@
 .App {
-  padding: 10rem 0;
+  padding: 10% 5%;
   width: 100%;
   display: grid;
   grid-template-areas:
@@ -9,7 +9,6 @@
     'd';
   grid-template-rows: auto auto auto auto;
   justify-content: center;
-
 }
 
 h1 {
