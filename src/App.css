@@ -1,0 +1,21 @@
+.App {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    'a'
+    'b'
+    'c'
+    'd';
+  /* grid-template-rows: 4;
+  grid-template-columns: 1; */
+}
+
+h1 {
+  font-size: 5rem;
+  grid-area: a;
+}
+
+.emoji {
+  font-size: 5rem;
+  grid-area: b;
+}

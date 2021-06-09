@@ -1,0 +1,6 @@
+form {
+  grid-area: c;
+  display: flex;
+  flex-direction: column;
+  
+}

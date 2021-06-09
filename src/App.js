@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import './App.css';
+
 import requestSentiment from '../src/util/apiCalls';
 import faceSwitch from '../src/util/faceSwitch';
 
 import Form from './components/Form/Form';
+import Drafts from './components/Drafts/Drafts';
 
 export default function App() {
   const [drafts, setDrafts] = useState([]);
@@ -41,24 +44,27 @@ export default function App() {
         exact
         path='/'
         render={() => (
-          <>
-            <div>{emoji}</div>
+          <div className='App'>
+            <h1>Overthunk</h1>
+            <div className='emoji'>{emoji}</div>
             <Form
               checkSentiment={checkSentiment}
               message={message}
               setMessage={setMessage}
             />
-          </>
+            <Drafts drafts={drafts} />
+          </div>
         )}
       />
       <Route
         exact
         path='/result'
         render={() => (
-          <>
-            <div>{emoji}</div>
+          <div className='App'>
+            <h1>Overthunk</h1>
+            <div className='emoji'>{emoji}</div>
             {error && error}
-            <div>{sentiment && sentiment.result.type}</div>
+            <div>{!error && sentiment && sentiment.result.type}</div>
             <Link to='/'>
               <button>Back</button>
             </Link>
@@ -67,7 +73,7 @@ export default function App() {
                 <button onClick={submitDraft}>Save Draft</button>
               </Link>
             )}
-          </>
+          </div>
         )}
       />
       <Redirect to='/' />

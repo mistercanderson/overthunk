@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './Form.css'
 
 export default function Form({ checkSentiment, message, setMessage }) {
   
@@ -11,6 +12,7 @@ export default function Form({ checkSentiment, message, setMessage }) {
     >
       <label name='message'>
         Message:
+      </label>
         <input
           type='text'
           value={message}
@@ -18,7 +20,6 @@ export default function Form({ checkSentiment, message, setMessage }) {
             setMessage(e.target.value);
           }}
         />
-      </label>
       <Link to='/result'>
         <button
           onClick={() => {
