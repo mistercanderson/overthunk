@@ -7,6 +7,7 @@ import faceSwitch from '../src/util/faceSwitch';
 
 import Form from './components/Form/Form';
 import Drafts from './components/Drafts/Drafts';
+import Result from './components/Result/Result';
 
 export default function App() {
   const [drafts, setDrafts] = useState([]);
@@ -23,6 +24,9 @@ export default function App() {
 
   const checkSentiment = (message) => {
     setError('');
+    if (!message) {
+      return alert('Please enter a message to test!');
+    }
     requestSentiment(message)
       .then((data) => {
         setSentiment(data);
@@ -31,7 +35,7 @@ export default function App() {
   };
 
   const submitDraft = () => {
-    setDrafts([...drafts, message]);
+    setDrafts([...drafts, `${message} ${emoji}`]);
     setMessage('');
     setSentiment('');
   };
@@ -58,21 +62,17 @@ export default function App() {
       />
       <Route
         exact
-        path='/result'
+        path={message ? '/result' : '/'}
         render={() => (
           <div className='App'>
             <h1>Overthunk</h1>
             <div className='emoji'>{emoji}</div>
             {error && error}
-            <div>{!error && sentiment && sentiment.result.type}</div>
-            <Link to='/'>
-              <button>Back</button>
-            </Link>
-            {!error && (
-              <Link to='/'>
-                <button onClick={submitDraft}>Save Draft</button>
-              </Link>
-            )}
+            <Result
+              error={error}
+              sentiment={sentiment}
+              submitDraft={submitDraft}
+            />
           </div>
         )}
       />

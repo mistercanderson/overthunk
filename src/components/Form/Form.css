@@ -1,6 +1,24 @@
 form {
   grid-area: c;
-  display: flex;
-  flex-direction: column;
-  
+  display: grid;
+  grid-template-areas:
+    'aa'
+    'bb'
+    'cc';
+  grid-gap: 4%;
+  margin: 1em 0 2em 0;
+}
+
+label {
+  grid-area: aa;
+}
+
+textarea {
+  resize: none;
+  grid-area: bb
+}
+
+form > button {
+  grid-area: cc;
+  width: 100%;
 }

@@ -1,0 +1,25 @@
+.Result {
+  display: grid;
+  grid-template-areas:
+    '. aaa .'
+    'bbb . ccc';
+  grid-template-columns: 5rem auto 5rem;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 4%;
+  justify-content: center;
+  margin: 1em 0 2em 0;
+}
+
+.polarity {
+  display: block;
+  width: 100%;
+  grid-area: aaa;
+}
+
+.back {
+  grid-area: bbb;
+}
+
+.submit-draft {
+  grid-area: ccc;
+}
