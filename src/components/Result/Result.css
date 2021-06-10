@@ -13,6 +13,7 @@
   grid-gap: 4%;
   justify-content: center;
   align-items: start;
+  align-content: center;
   margin: 0 0 2em 0;
   font-size: 1.3em;
   text-align: center;
@@ -36,8 +37,10 @@
 
 .back {
   grid-area: ddd;
+  margin-left: 2em
 }
 
 .submit-draft {
   grid-area: eee;
+  margin-right: 2em
 }

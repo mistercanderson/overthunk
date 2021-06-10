@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import 'animate.css';
 
@@ -34,7 +34,7 @@ export default function App() {
   }, []);
 
   const checkSentiment = (message) => {
-    setSentiment('')
+    setSentiment('');
     setError('');
     if (!message) {
       return alert('Please enter a message to test!');
@@ -47,7 +47,7 @@ export default function App() {
   };
 
   const submitDraft = () => {
-    setDrafts([...drafts, `${message} ${emoji}`]);
+    setDrafts([...drafts, { message, emoji }]);
     setMessage('');
     setSentiment('');
   };

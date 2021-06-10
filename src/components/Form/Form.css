@@ -6,7 +6,7 @@ form {
     'bb'
     'cc';
   grid-gap: 4%;
-  margin: -2em 2em 2em 2em;
+  margin: -2em 0 2em 0;
 }
 
 label {
