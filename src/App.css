@@ -9,7 +9,7 @@
     'd';
   grid-template-rows: auto auto auto auto;
   justify-content: center;
-  grid-gap: 1.2em;
+  align-items: center
 }
 
 
@@ -42,13 +42,7 @@ button:hover {
   box-shadow: 0px 1px 3px 0px #00000059;
 }
 
-.emoji {
-  font-size: 5rem;
-  grid-area: b;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 @media screen and (max-width: 480px) {
   .App {

@@ -23,7 +23,7 @@ export default function Result({ error, sentiment, submitDraft }) {
       </Link>
       {!error && (
         <Link className='submit-draft' to='/' tabIndex={-1}>
-          <button onClick={submitDraft}>Save Draft</button>
+          <button onClick={submitDraft}>Save</button>
         </Link>
       )}
     </div>
