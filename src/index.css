@@ -2,7 +2,12 @@
 
 body {
   height: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  background: rgba(247, 245, 245, 0.219);
+  color: rgb(71, 81, 92);
 }
- * {
-   box-sizing: border-box;
- }
+
+* {
+  box-sizing: border-box;
+}

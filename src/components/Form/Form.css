@@ -11,15 +11,26 @@ form {
 
 label {
   grid-area: aa;
+  font-size: 1.2em;
+  margin: 0 2em;
 }
 
 textarea {
   resize: none;
   grid-area: bb;
-  width: 45ch
+  width: 45ch;
+  font-size: 1.7em;
+  margin: 0 2em;
 }
 
-form > button {
+form > a > button {
+  margin-top: 1em;
   grid-area: cc;
-  width: 100%;
+  width: 40%;
+}
+
+@media screen and (max-width: 480px) {
+  textarea {
+    font-size: 1em;
+  }
 }
