@@ -6,13 +6,12 @@ form {
     'bb'
     'cc';
   grid-gap: 4%;
-  margin: 1em 0 2em 0;
+  margin: 1em 2em 2em 2em;
 }
 
 label {
   grid-area: aa;
   font-size: 1.2em;
-  margin: 0 2em;
 }
 
 textarea {
@@ -20,13 +19,16 @@ textarea {
   grid-area: bb;
   width: 45ch;
   font-size: 1.7em;
-  margin: 0 2em;
 }
 
 form > a > button {
   margin-top: 1em;
   grid-area: cc;
   width: 40%;
+}
+
+.char-counter {
+  justify-self: right;
 }
 
 @media screen and (max-width: 480px) {

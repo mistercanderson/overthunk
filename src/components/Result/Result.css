@@ -1,25 +1,41 @@
-.Result {
+.result {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-areas:
     '. aaa .'
-    'bbb . ccc';
+    '. bbb .'
+    '. ccc .'
+    'ddd . eee';
   grid-template-columns: 5rem auto 5rem;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 2fr);
   grid-gap: 4%;
   justify-content: center;
+  align-items: start;
   margin: 1em 0 2em 0;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.result-message-start {
+  display: block;
+  grid-area: aaa;
+  text-align: center;
 }
 
 .polarity {
-  display: block;
-  width: 100%;
-  grid-area: aaa;
+  grid-area: bbb;
+  font-size: 1.6em;
+}
+
+.result-message-end {
+  grid-area: ccc;
 }
 
 .back {
-  grid-area: bbb;
+  grid-area: ddd;
 }
 
 .submit-draft {
-  grid-area: ccc;
+  grid-area: eee;
 }

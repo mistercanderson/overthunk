@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import './App.css';
+import 'animate.css';
 
 import requestSentiment from '../src/util/apiCalls';
 import faceSwitch from '../src/util/faceSwitch';
@@ -8,6 +9,8 @@ import faceSwitch from '../src/util/faceSwitch';
 import Form from './components/Form/Form';
 import Drafts from './components/Drafts/Drafts';
 import Result from './components/Result/Result';
+import Title from './components/Title/Title';
+import Emoji from './components/Emoji/Emoji';
 
 export default function App() {
   const [drafts, setDrafts] = useState([]);
@@ -22,7 +25,16 @@ export default function App() {
     setEmoji(face);
   }, [sentiment]);
 
+  useEffect(() => {
+    const emoji = document.querySelector('.emoji');
+    emoji?.classList?.add('animate__animated', 'animate__fadeInLeft');
+    return () => {
+      emoji?.classList?.remove('animate__animated', 'animate__fadeInLeft');
+    };
+  }, []);
+
   const checkSentiment = (message) => {
+    setSentiment('')
     setError('');
     if (!message) {
       return alert('Please enter a message to test!');
@@ -49,8 +61,8 @@ export default function App() {
         path='/'
         render={() => (
           <div className='App'>
-            <h1>Overthunk</h1>
-            <div className='emoji'>{emoji}</div>
+            <Title />
+            <Emoji emoji={emoji} />
             <Form
               checkSentiment={checkSentiment}
               message={message}
@@ -62,11 +74,11 @@ export default function App() {
       />
       <Route
         exact
-        path={message ? '/result' : '/'}
+        path={message || drafts.length ? '/result' : '/'}
         render={() => (
           <div className='App'>
-            <h1>Overthunk</h1>
-            <div className='emoji'>{emoji}</div>
+            <Title />
+            <Emoji emoji={emoji} />
             {error && error}
             <Result
               error={error}

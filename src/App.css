@@ -9,16 +9,9 @@
     'd';
   grid-template-rows: auto auto auto auto;
   justify-content: center;
-  grid-gap: 5%;
+  grid-gap: 1.2em;
 }
 
-h1 {
-  font-size: 5rem;
-  grid-area: a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 a {
   text-decoration: none;
@@ -38,13 +31,14 @@ button {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
   background: rgba(211, 206, 196, 0.322);
-  font-size: 1.4em;
+  font-size: 1.4rem;
   transition: all 150ms ease-in-out;
   color: rgb(34, 39, 44);
 }
 
 button:hover {
   background: rgba(179, 175, 167, 0.39);
+  color: rgb(74, 86, 97);
   box-shadow: 0px 1px 3px 0px #00000059;
 }
 
