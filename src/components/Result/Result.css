@@ -37,10 +37,10 @@
 
 .back {
   grid-area: ddd;
-  margin-left: 2em
+  padding-left: 5rem
 }
 
 .submit-draft {
   grid-area: eee;
-  margin-right: 2em
+  padding-right: 5rem
 }

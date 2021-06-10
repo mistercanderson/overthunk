@@ -40,17 +40,17 @@ button:hover {
   box-shadow: 0px 1px 3px 0px #00000059;
 }
 
+@media screen and (max-width: 1024px) {
+  .App {
+    padding-top: 22rem;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .App {
     padding-top: 8rem;
   }
   textarea {
     font-size: 0.3em;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .App {
-    padding-top: 22rem;
   }
 }
