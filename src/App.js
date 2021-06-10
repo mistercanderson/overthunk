@@ -18,6 +18,7 @@ export default function App() {
   const [message, setMessage] = useState('');
   const [emoji, setEmoji] = useState('🧐');
   const [error, setError] = useState('');
+  const [draftLimit, setDraftLimit] = useState(false);
 
   useEffect(() => {
     setSentiment(sentiment);
@@ -47,9 +48,13 @@ export default function App() {
   };
 
   const submitDraft = () => {
-    setDrafts([...drafts, { message, emoji }]);
-    setMessage('');
-    setSentiment('');
+    if (drafts.length < 3) {
+      setDrafts([...drafts, { message, emoji }]);
+      setMessage('');
+      return setSentiment('');
+    } else {
+      setDraftLimit(true);
+    }
   };
 
   const errorMessage = <p>Sorry, we weren't able to process your message.</p>;
@@ -83,6 +88,7 @@ export default function App() {
             <Result
               error={error}
               sentiment={sentiment}
+              draftLimit={draftLimit}
               submitDraft={submitDraft}
             />
           </div>

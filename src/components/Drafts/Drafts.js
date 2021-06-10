@@ -13,8 +13,7 @@ export default function Drafts({ drafts }) {
     };
   }, [selected]);
 
-  console.log(selected);
-  const displayDrafts = () =>
+  const mapDrafts = () =>
     drafts.map((d, i) => (
       <Draft
         key={i}
@@ -30,18 +29,8 @@ export default function Drafts({ drafts }) {
       />
     ));
   useEffect(() => {
-    setDisplay(displayDrafts());
+    setDisplay(mapDrafts());
   }, [drafts]);
 
-  return (
-    <div className='drafts'>
-      {drafts ? (
-        [...display]
-      ) : (
-        <div className='draft'>
-          <button className='draft-button hidden'>Draft</button>
-        </div>
-      )}
-    </div>
-  );
+  return <div className='drafts'>{drafts && [...display]}</div>;
 }

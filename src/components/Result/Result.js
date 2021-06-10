@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './Result.css';
 import { Link } from 'react-router-dom';
 
-export default function Result({ error, sentiment, submitDraft }) {
+export default function Result({ error, sentiment, submitDraft, draftLimit }) {
   useEffect(() => {
     const polarity = document.querySelector('.polarity');
     polarity?.classList?.add('animate__animated', 'animate__fadeIn');
@@ -23,7 +23,19 @@ export default function Result({ error, sentiment, submitDraft }) {
       </Link>
       {!error && (
         <Link className='submit-draft' to='/' tabIndex={-1}>
-          <button onClick={submitDraft}>Save</button>
+          <button
+            onClick={() => {
+              if (!draftLimit) {
+                return submitDraft();
+              } else {
+                window.alert(
+                  "You've already written 3 drafts, make sure you don't overthink it!"
+                );
+              }
+            }}
+          >
+            Save
+          </button>
         </Link>
       )}
     </div>
