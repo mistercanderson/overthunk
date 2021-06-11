@@ -19,7 +19,7 @@ export default function Form({ checkSentiment, message, setMessage }) {
       <label name='message'>Message:</label>
       <textarea
         autoComplete='off'
-        placeholder='Put your test message here'
+        placeholder='Put your message here...'
         rows={5}
         value={message}
         maxLength={maxLength}

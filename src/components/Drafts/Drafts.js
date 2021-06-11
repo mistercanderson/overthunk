@@ -1,36 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Drafts.css';
-import Draft from './Draft';
+import DraftButton from './DraftButton';
+import DraftContainer from './DraftContainer';
+import 'animate.css';
 
 export default function Drafts({ drafts }) {
-  const [display, setDisplay] = useState([]);
+  const [displayButtons, setDisplayButtons] = useState([]);
   const [selected, setSelected] = useState('');
+  const prevSelected = useRef(false);
 
   useEffect(() => {
-    selected?.classList?.remove('hidden');
-    return () => {
-      selected?.classList?.add('hidden');
-    };
+    prevSelected.current = selected;
   }, [selected]);
 
-  const mapDrafts = () =>
-    drafts.map((d, i) => (
-      <Draft
-        key={i}
-        draft={d}
-        index={i}
-        selected={selected}
-        handleClick={(e) => {
-          if (e.target.className === 'close') {
-            return setSelected('');
-          }
-          setSelected(e.target.previousSibling);
-        }}
-      />
-    ));
   useEffect(() => {
-    setDisplay(mapDrafts());
+    const mapDraftButtons = () =>
+      drafts.map((d, i) => (
+        <DraftButton
+          key={d.message + i}
+          draft={d}
+          index={i}
+          handleClick={(e) => {
+            setSelected(e.target.name);
+          }}
+        />
+      ));
+    setDisplayButtons(mapDraftButtons());
   }, [drafts]);
 
-  return <div className='drafts'>{drafts && [...display]}</div>;
+  return (
+    <div className='drafts'>
+      {selected && (
+        <DraftContainer
+          animate={!prevSelected.current && true}
+          draft={drafts[selected]}
+          index={parseInt(selected)}
+          handleClick={(e) => {
+            if (e.target.className === 'close') {
+              const card = e.target.closest('.draft-container');
+              card.classList.remove('animate__animated', 'animate__fadeInDown');
+              card.classList.add('animate__animated', 'animate__backOutUp');
+              setTimeout(() => setSelected(''), 500);
+            }
+          }}
+        />
+      )}
+      {drafts && [...displayButtons]}
+    </div>
+  );
 }

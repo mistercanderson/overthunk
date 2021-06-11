@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: start;
   align-content: center;
-  margin: 0 0 2em 0;
+  margin: 3em 0;
   font-size: 1.3em;
   text-align: center;
 }
@@ -26,8 +26,12 @@
 }
 
 .polarity {
+  background: white;
   grid-area: bbb;
   font-size: 1.6em;
+  border-radius: 10px;
+  box-shadow: 2px 3px 6px 0px #00000059;
+  padding: .5em 0;
 }
 
 .result-message-end {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './Result.css';
 import { Link } from 'react-router-dom';
 
-export default function Result({ error, sentiment, submitDraft, draftLimit }) {
+export default function Result({ error, sentiment, submitDraft, drafts }) {
   useEffect(() => {
     const polarity = document.querySelector('.polarity');
     polarity?.classList?.add('animate__animated', 'animate__fadeIn');
@@ -25,7 +25,7 @@ export default function Result({ error, sentiment, submitDraft, draftLimit }) {
         <Link className='submit-draft' to='/' tabIndex={-1}>
           <button
             onClick={() => {
-              if (!draftLimit) {
+              if (drafts.length < 3) {
                 return submitDraft();
               } else {
                 window.alert(

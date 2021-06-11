@@ -18,7 +18,7 @@ export default function App() {
   const [message, setMessage] = useState('');
   const [emoji, setEmoji] = useState('🧐');
   const [error, setError] = useState('');
-  const [draftLimit, setDraftLimit] = useState(false);
+  // const [draftLimit, setDraftLimit] = useState(false);
 
   useEffect(() => {
     setSentiment(sentiment);
@@ -38,7 +38,7 @@ export default function App() {
     setSentiment('');
     setError('');
     if (!message) {
-      return alert('Please enter a message to test!');
+      return alert('Please enter a message to overthink!');
     }
     requestSentiment(message)
       .then((data) => {
@@ -48,13 +48,9 @@ export default function App() {
   };
 
   const submitDraft = () => {
-    if (drafts.length < 3) {
-      setDrafts([...drafts, { message, emoji }]);
-      setMessage('');
-      return setSentiment('');
-    } else {
-      setDraftLimit(true);
-    }
+    setDrafts([...drafts, { message, emoji }]);
+    setMessage('');
+    setSentiment('');
   };
 
   const errorMessage = <p>Sorry, we weren't able to process your message.</p>;
@@ -79,7 +75,7 @@ export default function App() {
       />
       <Route
         exact
-        path={message || drafts.length ? '/result' : '/'}
+        path={message ? '/result' : '/'}
         render={() => (
           <div className='App'>
             <Title />
@@ -88,7 +84,7 @@ export default function App() {
             <Result
               error={error}
               sentiment={sentiment}
-              draftLimit={draftLimit}
+              drafts={drafts}
               submitDraft={submitDraft}
             />
           </div>
