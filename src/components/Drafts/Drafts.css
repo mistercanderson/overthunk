@@ -5,9 +5,10 @@
 }
 
 .draft-text {
-  max-width: 45ch;
+  max-width: 80%;
   margin: 2em 1em;
   font-size: 1.3em;
+  word-wrap: break-word;
 }
 
 .draft-button {
