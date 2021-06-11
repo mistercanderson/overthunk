@@ -1,5 +1,5 @@
 .App {
-  padding: 5rem 0;
+  padding: 8rem 0;
   width: 100%;
   display: grid;
   grid-template-areas:
@@ -7,9 +7,9 @@
     'b'
     'c'
     'd';
-  grid-template-rows: auto auto auto 2rem;
-  justify-content: center;
-  align-items: center;
+  grid-template-rows: auto auto auto auto;
+  align-content: center;
+  justify-items: center;
 }
 
 a {
@@ -43,15 +43,13 @@ button:hover {
 
 @media screen and (max-width: 1024px) {
   .App {
-    padding-top: 22rem;
+    padding-top: 25vh;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .App {
-    padding-top: 8rem;
-  }
+
   textarea {
-    font-size: 0.3em;
+    font-size: 0.6em;
   }
 }
