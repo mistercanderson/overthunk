@@ -33,7 +33,7 @@
   font-size: 1.6em;
   border-radius: 15px;
   box-shadow: 2px 3px 6px 0px #00000059;
-  padding: .5em 0;
+  padding: 0.5em 0;
 }
 
 .result-message-end {
@@ -43,10 +43,16 @@
 
 .back {
   grid-area: ddd;
-  padding-left: 5rem
+  padding-left: 5rem;
 }
 
 .submit-draft {
   grid-area: eee;
-  padding-right: 5rem
+  padding-right: 5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .result {
+    margin: 1em 0 0 0;
+  }
 }

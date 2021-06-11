@@ -48,6 +48,9 @@ button:hover {
 }
 
 @media screen and (max-width: 480px) {
+  .App {
+    padding-top: 6rem;
+  }
 
   textarea {
     font-size: 0.6em;
