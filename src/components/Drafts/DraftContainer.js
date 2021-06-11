@@ -7,7 +7,7 @@ export default function DraftContainer({ draft, index, animate, handleClick }) {
       className={
         animate
           ? 'draft-container animate__animated animate__fadeInDown animate__faster	500ms'
-          : 'draft-container'
+          : 'draft-container animate__faster	500ms'
       }
     >
       <header>

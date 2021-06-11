@@ -5,27 +5,31 @@ import DraftContainer from './DraftContainer';
 import 'animate.css';
 
 export default function Drafts({ drafts }) {
-  const [displayButtons, setDisplayButtons] = useState([]);
+  const [buttons, setButtons] = useState([]);
   const [selected, setSelected] = useState('');
-  const prevSelected = useRef(false);
+  const prevSelected = useRef('');
 
   useEffect(() => {
     prevSelected.current = selected;
   }, [selected]);
 
   useEffect(() => {
-    const mapDraftButtons = () =>
-      drafts.map((d, i) => (
-        <DraftButton
-          key={d.message + i}
-          draft={d}
-          index={i}
-          handleClick={(e) => {
-            setSelected(e.target.name);
-          }}
-        />
-      ));
-    setDisplayButtons(mapDraftButtons());
+    const createDraftButtons = () => {
+      const buttons = [];
+      for (let i = 0; i < drafts.length; i++) {
+        buttons.push(
+          <DraftButton
+            key={i}
+            index={i}
+            handleClick={(e) => {
+              setSelected(e.target.name);
+            }}
+          />
+        );
+      }
+      return buttons;
+    };
+    setButtons(createDraftButtons());
   }, [drafts]);
 
   return (
@@ -38,14 +42,14 @@ export default function Drafts({ drafts }) {
           handleClick={(e) => {
             if (e.target.className === 'close') {
               const card = e.target.closest('.draft-container');
-              card.classList.remove('animate__animated', 'animate__fadeInDown');
+              card.classList.remove('animate__fadeInDown');
               card.classList.add('animate__animated', 'animate__backOutUp');
               setTimeout(() => setSelected(''), 500);
             }
           }}
         />
       )}
-      {drafts && [...displayButtons]}
+      {drafts && [...buttons]}
     </div>
   );
 }
