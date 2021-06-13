@@ -1,0 +1,58 @@
+.result {
+  grid-area: c;
+  width: 100%;
+  /* height: 100%; */
+  display: grid;
+  grid-template-areas:
+    '. aaa .'
+    '. bbb .'
+    '. ccc .'
+    'ddd . eee';
+  grid-template-columns: 5rem auto 5rem;
+  grid-template-rows: auto auto auto 1fr;
+  grid-gap: 4%;
+  justify-content: center;
+  align-items: start;
+  align-content: center;
+  justify-items: center;
+  margin: 1em 0 3em 0;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.result-message-start {
+  display: block;
+  grid-area: aaa;
+  text-align: center;
+}
+
+.polarity {
+  width: 9rem;
+  background: white;
+  grid-area: bbb;
+  font-size: 1.6em;
+  border-radius: 15px;
+  box-shadow: 2px 3px 6px 0px #00000059;
+  padding: 0.5em 0;
+}
+
+.result-message-end {
+  grid-area: ccc;
+  margin-bottom: 2em;
+}
+
+.back {
+  grid-area: ddd;
+  padding-left: 5rem;
+}
+
+.submit-draft {
+  grid-area: eee;
+  padding-right: 5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .result {
+    margin: 1em 0 0 0;
+  }
+}

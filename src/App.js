@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import './App.css';
+import 'animate.css';
+
 import requestSentiment from '../src/util/apiCalls';
 import faceSwitch from '../src/util/faceSwitch';
 
 import Form from './components/Form/Form';
+import Drafts from './components/Drafts/Drafts';
+import Result from './components/Result/Result';
+import Title from './components/Title/Title';
+import Emoji from './components/Emoji/Emoji';
 
 export default function App() {
   const [drafts, setDrafts] = useState([]);
@@ -11,6 +18,7 @@ export default function App() {
   const [message, setMessage] = useState('');
   const [emoji, setEmoji] = useState('🧐');
   const [error, setError] = useState('');
+  // const [draftLimit, setDraftLimit] = useState(false);
 
   useEffect(() => {
     setSentiment(sentiment);
@@ -18,8 +26,20 @@ export default function App() {
     setEmoji(face);
   }, [sentiment]);
 
+  useEffect(() => {
+    const emoji = document.querySelector('.emoji');
+    emoji?.classList?.add('animate__animated', 'animate__fadeInLeft');
+    return () => {
+      emoji?.classList?.remove('animate__animated', 'animate__fadeInLeft');
+    };
+  }, []);
+
   const checkSentiment = (message) => {
+    setSentiment('');
     setError('');
+    if (!message) {
+      return alert('Please enter a message to overthink!');
+    }
     requestSentiment(message)
       .then((data) => {
         setSentiment(data);
@@ -28,7 +48,7 @@ export default function App() {
   };
 
   const submitDraft = () => {
-    setDrafts([...drafts, message]);
+    setDrafts([...drafts, { message, emoji }]);
     setMessage('');
     setSentiment('');
   };
@@ -41,33 +61,33 @@ export default function App() {
         exact
         path='/'
         render={() => (
-          <>
-            <div>{emoji}</div>
+          <div className='App'>
+            <Title />
+            <Emoji emoji={emoji} />
             <Form
               checkSentiment={checkSentiment}
               message={message}
               setMessage={setMessage}
             />
-          </>
+            <Drafts drafts={drafts} />
+          </div>
         )}
       />
       <Route
         exact
-        path='/result'
+        path={message ? '/result' : '/'}
         render={() => (
-          <>
-            <div>{emoji}</div>
+          <div className='App'>
+            <Title />
+            <Emoji emoji={emoji} />
             {error && error}
-            <div>{sentiment && sentiment.result.type}</div>
-            <Link to='/'>
-              <button>Back</button>
-            </Link>
-            {!error && (
-              <Link to='/'>
-                <button onClick={submitDraft}>Save Draft</button>
-              </Link>
-            )}
-          </>
+            <Result
+              error={error}
+              sentiment={sentiment}
+              drafts={drafts}
+              submitDraft={submitDraft}
+            />
+          </div>
         )}
       />
       <Redirect to='/' />

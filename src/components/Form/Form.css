@@ -1,0 +1,38 @@
+form {
+  grid-area: c;
+  display: grid;
+  grid-template-areas:
+    'aa'
+    'bb'
+    'cc';
+  grid-gap: 4%;
+  margin: -2em 0 2em 0;
+}
+
+label {
+  grid-area: aa;
+  font-size: 1.2em;
+}
+
+textarea {
+  resize: none;
+  grid-area: bb;
+  width: 45ch;
+  font-size: 1.7em;
+}
+
+form > a > button {
+  margin-top: 1em;
+  grid-area: cc;
+  width: 40%;
+}
+
+.char-counter {
+  justify-self: right;
+}
+
+@media screen and (max-width: 480px) {
+  textarea {
+    font-size: 1em;
+  }
+}
