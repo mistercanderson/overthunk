@@ -22,6 +22,9 @@ Overthunk is an app designed for users who spend waaay too much time thinking ab
 - Enter `npm start` to start the development server
 - Enter `npm run cypress` to open cypress testing
 
+### Demo
+
+![Overthunk Demo](./overthunk_demo.gif)
 
 ### Project Wins
 
