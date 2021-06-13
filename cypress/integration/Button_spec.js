@@ -34,7 +34,7 @@ describe('Buttons', () => {
     cy.get('.drafts').children().should('have.length', 3);
   });
 
-  it.only('should have a home button that brings the user to the home page', () => {
+  it('should have a home button that brings the user to the home page', () => {
     cy.writePositiveMessage();
     cy.get('@check-sentiment').click();
     cy.wait(500);
