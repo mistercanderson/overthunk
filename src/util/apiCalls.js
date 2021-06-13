@@ -2,14 +2,10 @@ export default async function requestSentiment(message) {
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
 
-  const raw = JSON.stringify({
-    text: message,
-  });
-
   const requestOptions = {
     method: 'POST',
     headers: myHeaders,
-    body: raw,
+    body: JSON.stringify({ text: message }),
     redirect: 'follow',
   };
 
