@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Overthunk 🧐
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview
 
-## Available Scripts
+Overthunk is an app designed for users who spend waaay too much time thinking about the messages they send to other people online. By filtering messages through the [Sentim-API](https://sentim-api.herokuapp.com/), users can get a quick, unbiased look at the overall tone of potential comments/messages, without spending all day thinking about it!
 
-In the project directory, you can run:
+### Using the App
 
-### `npm start`
+- Enter a message into the text box on the homepage (messages are limited to 200 characters to prevent overthinking)
+- Click the "Check Sentiment" button to view the overall tone of your message (positive, negative, or neutral)
+- The "Save" button will save the message in your drafts, or you can go back to edit the message & check it again
+- If there are saved drafts, these can be viewed & compared by clicking the draft buttons at the bottom of the page (in order to prevent overthinking, the draft limit is set to three)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Technologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[React](https://reactjs.org/), [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), [Animate.css](https://animate.style/), [Cypress](https://docs.cypress.io/guides/overview/why-cypress)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Fork & `git clone` this repo
+- `cd` into the project directory & run `npm i` to install dependencies
+- Enter `npm start` to start the development server
+- Enter `npm run cypress` to open cypress testing
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Project Wins
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The goal of this project was to create an app tailored to suit a niche audience in a short amount of time. After coming across the [Sentim-API](https://sentim-api.herokuapp.com/), I realized it could be useful for people that often have trouble sending messages online. Specifically, I wanted to help users easily test wether a message conveys its intended tone. The audience that could benefit from this includes overthinkers (like myself), users who are less familiar with nuances in online communication, or neuro-divergent users. I tried to keep the design of this app as simple as possible, to try & prevent users from interpreting anything other than the result of checking their messages (for example, using non-neutral colors could potentially send mixed signals; a negative result does not necessairly mean "bad"). My biggest win from this project was successfully creating a MVP that met these requirements, and has the potential to help a unique audience.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### What's Next?
 
-### `npm run eject`
+- View a more detailed report (results broken down by sentence)
+- Ability to send directly to messaging apps (integration with Instagram, SMS applications, etc.)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
