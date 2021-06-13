@@ -32,8 +32,7 @@ describe('Checking messages', () => {
     });
   });
   it('should be able to check the tone of a positive message', () => {
-    cy.loadPositiveStub();
-    cy.get('textarea').type('I love you');
+    cy.writePositiveMessage();
     cy.get('@check-sentiment').click();
     cy.wait(500);
     cy.get('.polarity').contains('positive');
@@ -41,15 +40,13 @@ describe('Checking messages', () => {
   });
 
   it('should know if a message is also negative, or neutral', () => {
-    cy.loadNegativeStub();
-    cy.get('textarea').type('I hate you');
+    cy.writeNegativeMessage();
     cy.get('@check-sentiment').click();
     cy.wait(500);
     cy.get('.polarity').contains('negative');
     cy.get('.emoji').contains('😕');
     cy.get('.back > button').click();
-    cy.loadNeutralStub();
-    cy.get('textarea').clear().type('I exist');
+    cy.writeNeutralMessage();
     cy.get('@check-sentiment').click();
     cy.wait(500);
     cy.get('.polarity').contains('neutral');
@@ -57,8 +54,7 @@ describe('Checking messages', () => {
   });
 
   it('a user should be able to go back & update a message', () => {
-    cy.loadPositiveStub();
-    cy.get('textarea').type('I love you');
+    cy.writePositiveMessage();
     cy.get('@check-sentiment').click();
     cy.wait(500);
     cy.get('.back > button').click();

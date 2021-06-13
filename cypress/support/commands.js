@@ -54,3 +54,30 @@ Cypress.Commands.add('loadNeutralStub', () => {
     ],
   });
 });
+
+Cypress.Commands.add('writePositiveMessage', () => {
+  cy.loadPositiveStub();
+  cy.get('textarea').clear().type('I love you');
+});
+
+Cypress.Commands.add('writeNegativeMessage', () => {
+  cy.loadNegativeStub();
+  cy.get('textarea').clear().type('I hate you');
+});
+
+Cypress.Commands.add('writeNeutralMessage', () => {
+  cy.loadNeutralStub();
+  cy.get('textarea').clear().type('I exist');
+});
+
+Cypress.Commands.add('saveThreeDrafts', () => {
+  cy.writePositiveMessage();
+  cy.get('@check-sentiment').click();
+  cy.get('.submit-draft > button').click();
+  cy.writeNegativeMessage();
+  cy.get('@check-sentiment').click();
+  cy.get('.submit-draft > button').click();
+  cy.writeNeutralMessage();
+  cy.get('@check-sentiment').click();
+  cy.get('.submit-draft > button').click();
+});
