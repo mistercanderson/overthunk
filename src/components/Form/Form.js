@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './Form.css';
 
@@ -42,3 +43,9 @@ export default function Form({ checkSentiment, message, setMessage }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  checkSentiment: PropTypes.func,
+  message: PropTypes.string,
+  setMessage: PropTypes.func,
+};

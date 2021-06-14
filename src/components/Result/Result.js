@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './Result.css';
 import { Link } from 'react-router-dom';
 
@@ -13,12 +14,16 @@ export default function Result({ error, sentiment, submitDraft, drafts }) {
 
   return (
     <div className='result'>
-      <p className='result-message-start'>This message conveys a </p>
-      <p className='polarity'>
-        {!error && sentiment ? sentiment.result.type : '...'}
+      <p className={error ? 'hidden' : 'result-message-start'}>
+        This message conveys a
       </p>
-      <p className='result-message-end'>tone.</p>
-      <Link className='back' to='/' tabIndex={-1}>
+      <p className={error ? 'hidden' : 'polarity'}>
+        {!error && sentiment ? sentiment : '...'}
+      </p>
+      <p className={error ? 'error' : 'result-message-end'}>
+        {error ? error : 'tone.'}
+      </p>
+      <Link className={error ? 'back-error' : 'back'} to='/' tabIndex={-1}>
         <button>Back</button>
       </Link>
       {!error && (
@@ -41,3 +46,10 @@ export default function Result({ error, sentiment, submitDraft, drafts }) {
     </div>
   );
 }
+
+Result.propTypes = {
+  error: PropTypes.string,
+  sentiment: PropTypes.string,
+  submitDraft: PropTypes.func,
+  drafts: PropTypes.array,
+};
