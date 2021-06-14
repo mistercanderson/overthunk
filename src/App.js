@@ -18,7 +18,6 @@ export default function App() {
   const [message, setMessage] = useState('');
   const [emoji, setEmoji] = useState('🧐');
   const [error, setError] = useState('');
-  // const [draftLimit, setDraftLimit] = useState(false);
 
   useEffect(() => {
     setSentiment(sentiment);
@@ -35,6 +34,7 @@ export default function App() {
   }, []);
 
   const checkSentiment = (message) => {
+    const errorMessage = "Sorry, we weren't able to process your message.";
     setSentiment('');
     setError('');
     if (!message) {
@@ -42,7 +42,7 @@ export default function App() {
     }
     requestSentiment(message)
       .then((data) => {
-        setSentiment(data);
+        setSentiment(data.result.type);
       })
       .catch(() => setError(errorMessage));
   };
@@ -52,8 +52,6 @@ export default function App() {
     setMessage('');
     setSentiment('');
   };
-
-  const errorMessage = <p>Sorry, we weren't able to process your message.</p>;
 
   return (
     <Switch>
@@ -80,7 +78,6 @@ export default function App() {
           <div className='App'>
             <Title />
             <Emoji emoji={emoji} />
-            {error && error}
             <Result
               error={error}
               sentiment={sentiment}

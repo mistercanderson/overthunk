@@ -1,5 +1,6 @@
 import React from 'react';
-import 'animate.css'
+import PropTypes from 'prop-types';
+import 'animate.css';
 
 export default function DraftContainer({ draft, index, animate, handleClick }) {
   return (
@@ -22,3 +23,10 @@ export default function DraftContainer({ draft, index, animate, handleClick }) {
     </div>
   );
 }
+
+DraftContainer.propTypes = {
+  draft: PropTypes.object,
+  index: PropTypes.number,
+  animate: PropTypes.bool,
+  handleClick: PropTypes.func,
+};

@@ -7,7 +7,7 @@
     '. aaa .'
     '. bbb .'
     '. ccc .'
-    'ddd . eee';
+    'ddd zzz eee';
   grid-template-columns: 5rem auto 5rem;
   grid-template-rows: auto auto auto 1fr;
   grid-gap: 4%;
@@ -49,6 +49,15 @@
 .submit-draft {
   grid-area: eee;
   padding-right: 5rem;
+}
+
+.error {
+  grid-area: ccc;
+  margin-bottom: 3rem
+}
+
+.back-error {
+  grid-area: zzz
 }
 
 @media screen and (max-width: 480px) {

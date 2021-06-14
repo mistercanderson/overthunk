@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import './Drafts.css';
 import DraftButton from './DraftButton';
 import DraftContainer from './DraftContainer';
@@ -36,7 +37,7 @@ export default function Drafts({ drafts }) {
     <div className='drafts'>
       {selected && (
         <DraftContainer
-          animate={!prevSelected.current && true}
+          animate={!prevSelected.current ? true : false}
           draft={drafts[selected]}
           index={parseInt(selected)}
           handleClick={(e) => {
@@ -53,3 +54,7 @@ export default function Drafts({ drafts }) {
     </div>
   );
 }
+
+Drafts.propTypes = {
+  drafts: PropTypes.array,
+};
