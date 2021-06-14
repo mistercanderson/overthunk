@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     setSentiment(sentiment);
-    const face = faceSwitch(sentiment?.result?.type);
+    const face = faceSwitch(sentiment);
     setEmoji(face);
   }, [sentiment]);
 
