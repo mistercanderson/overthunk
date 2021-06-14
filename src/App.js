@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     setSentiment(sentiment);
-    const face = faceSwitch(sentiment?.result?.type);
+    const face = faceSwitch(sentiment);
     setEmoji(face);
   }, [sentiment]);
 
@@ -29,7 +29,7 @@ export default function App() {
     const emoji = document.querySelector('.emoji');
     emoji?.classList?.add('animate__animated', 'animate__fadeInLeft');
     return () => {
-      emoji?.classList?.remove('animate__animated', 'animate__fadeInLeft');
+      emoji?.classList?.remove('animate__animated');
     };
   }, []);
 

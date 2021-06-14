@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export default function DraftButton({ index, handleClick }) {
   return (
@@ -11,5 +11,5 @@ export default function DraftButton({ index, handleClick }) {
 
 DraftButton.propTypes = {
   index: PropTypes.number,
-  handleClick: PropTypes.func
-}
+  handleClick: PropTypes.func,
+};

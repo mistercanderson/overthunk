@@ -53,11 +53,11 @@
 
 .error {
   grid-area: ccc;
-  margin-bottom: 3rem
+  margin-bottom: 3rem;
 }
 
 .back-error {
-  grid-area: zzz
+  grid-area: zzz;
 }
 
 @media screen and (max-width: 480px) {

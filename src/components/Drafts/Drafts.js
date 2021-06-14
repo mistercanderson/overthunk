@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './Drafts.css';
 import DraftButton from './DraftButton';
 import DraftContainer from './DraftContainer';
-import 'animate.css';
 
 export default function Drafts({ drafts }) {
   const [buttons, setButtons] = useState([]);
