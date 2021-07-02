@@ -5,4 +5,4 @@ workflows:
     example-workflow:
       jobs:
         - cypress/run:
-            start: npm start 
+            start: npm start
