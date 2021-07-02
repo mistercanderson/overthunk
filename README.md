@@ -1,4 +1,6 @@
-# Overthunk 🧐 [![CircleCI](https://circleci.com/gh/mistercanderson/overthunk/tree/circleci-editor%2Fmain.svg?style=shield)](https://circleci.com/gh/mistercanderson/overthunk/tree/circleci-editor%2Fmain)
+# Overthunk 🧐 
+
+[![CircleCI](https://circleci.com/gh/mistercanderson/overthunk/tree/circleci-editor%2Fmain.svg?style=shield)](https://circleci.com/gh/mistercanderson/overthunk/tree/circleci-editor%2Fmain)
 
 [View Deployment](https://handy-breath.surge.sh/)
 
