@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cypress open",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "cypress": "./node_modules/.bin/cypress open"
   },
@@ -42,6 +42,7 @@
     "npm": "^7.17.0",
     "prop-types": "^15.7.2",
     "react-router-dom": "^5.2.0",
-    "reset-css": "^5.0.1"
+    "reset-css": "^5.0.1",
+    "start-server-and-test": "^1.12.5"
   }
 }
