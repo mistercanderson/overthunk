@@ -1,5 +1,14 @@
 language: node_js
 node_js:
-  - "node"
+  - "lts/*"
 notifications:
   email: false
+install:
+  - npm ci
+cache:
+  directories:
+    - ~/.npm
+    - ./node_modules
+    - ~/.cache  override:
+      - npm ci
+    - npm run cy:verify
