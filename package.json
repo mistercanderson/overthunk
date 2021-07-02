@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cypress open",
+    "test": "cypress run",
     "eject": "react-scripts eject",
     "cypress": "./node_modules/.bin/cypress open"
   },
