@@ -12,7 +12,8 @@
     "web-vitals": "^1.1.2",
     "reset-css": "^5.0.1",
     "animate.css": "^4.1.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "prop-types": "^15.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,7 +42,6 @@
   "devDependencies": {
     "cypress": "^7.5.0",
     "npm": "^7.17.0",
-    "prop-types": "^15.7.2",
     "start-server-and-test": "^1.12.5"
   }
 }
