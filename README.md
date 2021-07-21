@@ -1,8 +1,8 @@
 # Overthunk 🧐 
 
-[![CircleCI](https://circleci.com/gh/mistercanderson/overthunk/tree/main.svg?style=shield)](https://circleci.com/gh/mistercanderson/overthunk/tree/circleci-editor%2Fmain)
+[![CircleCI](https://circleci.com/gh/mistercanderson/overthunk/tree/main.svg?style=shield)](https://circleci.com/gh/mistercanderson/overthunk/tree/main)
 
-[View Deployment](https://overthunk.herokuapp.com/)
+✨[View Deployment](https://overthunk.herokuapp.com/)✨
 
 ### Overview
 
